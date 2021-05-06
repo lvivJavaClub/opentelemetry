@@ -1,6 +1,10 @@
 # OpenTelemetry Demo Application
 
 ## Run the project
+Run `docker-compose` with `jaeger` and `zipkin`
+```shell
+docker-compose up
+```
 Build the project with
 ```shell
 mvn clean install
@@ -9,7 +13,7 @@ Run the project with `opentelemetry-javaagent-all.jar` Java agent
 ```shell
 java -javaagent:opentelemetry-javaagent-all.jar \                                    
   -Dotel.resource.attributes=service.name=demo-service \
-  -Dotel.traces.exporter=zipkin \
+  -Dotel.traces.exporter=jaeger \
   -Dotel.metrics.exporter=prometheus \
   -jar target/opentelemetry-0.0.1-SNAPSHOT.jar
 ```
